@@ -5,7 +5,7 @@
     "description": "Summarizes Terms of Service & Privacy Policies using AI. Requires a Google AI Studio API key.",
     "browser_specific_settings": {
       "gecko": {
-        "id": "tos-summarizer-ai@yourusername.github.io",
+        "id": "{b528c406-1c0c-4b56-aeca-1a7c85334bb6}",
         "strict_min_version": "109.0"
       }
     },
