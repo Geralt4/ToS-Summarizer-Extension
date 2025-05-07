@@ -38,7 +38,7 @@ Using the power of Google's Gemini AI, this extension provides concise summaries
 
 **Feedback & Issues:**
 
-*   Found a bug or have a suggestion? Please report it via the "Report an Issue" button in the extension popup, or directly at [https://github.com/Geralt4/ToS-Summarizer-Extension/issues] (https://github.com/Geralt4/ToS-Summarizer-Extension/issues).
+*   Found a bug or have a suggestion? Please report it via the "Report an Issue" button in the extension popup, or directly at [https://github.com/Geralt4/ToS-Summarizer-Extension/issues].
 
 ## 🔖 License
 
