@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ToS Summarizer</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div id="content">
+        <!-- ... (title, status, loader, summaryResult, errorResult, disclaimer) ... -->
+        <h3 id="title">ToS Summarizer</h3>
+        <div id="status">Ready. Click an action below.</div>
+        <div id="loader" class="loader" style="display: none;"></div>
+        <div id="summaryResult" class="summary-container" style="display: none;">
+            <h4>Summary: <button id="copyButton" title="Copy Summary">Copy</button></h4>
+            <pre id="summaryText"></pre>
+        </div>
+        <div id="errorResult" class="error-container" style="display: none;">
+            <h4>Error:</h4>
+            <p id="errorText"></p>
+        </div>
+        <p id="disclaimer" class.="disclaimer" style="display: none;"></p>
+    </div>
+
+    <button id="summarizePageButton">Summarize Full Page (Auto-Detect)</button>
+    <button id="summarizeSelectedButton">Summarize Selected Text</button>
+
+    <!-- *** NEW REPORT ISSUE BUTTON *** -->
+    <button id="reportIssueButton" class="secondary-action">Report an Issue</button>
+
+    <script src="popup.js"></script>
+</body>
+</html>
