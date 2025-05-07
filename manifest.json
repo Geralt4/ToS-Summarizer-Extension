@@ -1,34 +1,38 @@
 {
     "manifest_version": 3,
-    "name": "ToS Summarizer (Test)",
-    "version": "0.1",
-    "description": "Summarizes Terms of Service using Google AI.",
+    "name": "ToS Summarizer AI",
+    "version": "1.0.0",
+    "description": "Summarizes Terms of Service & Privacy Policies using AI. Requires a Google AI Studio API key.",
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "tos-summarizer-ai@yourusername.github.io",
+        "strict_min_version": "109.0"
+      }
+    },
     "options_ui": {
-        "page": "options.html",
-        "open_in_tab": true
+      "page": "options.html",
+      "open_in_tab": true
     },
     "action": {
-        "default_icon": {
-            "48": "icons/icon-48.png"
-        },
-        "default_title": "Summarize ToS",
-        "default_popup": "popup.html"
+      "default_icon": {
+        "48": "icons/icon-48.png"
+      },
+      "default_title": "Summarize ToS",
+      "default_popup": "popup.html"
     },
     "background": {
-        "scripts": [
-            "background.js"
-        ]
+      "scripts": ["background.js"]
     },
     "permissions": [
-        "storage",
-        "activeTab",
-        "scripting"
+      "storage",
+      "activeTab",
+      "scripting"
     ],
     "host_permissions": [
-        "https://generativelanguage.googleapis.com/*"
+      "https://generativelanguage.googleapis.com/*"
     ],
     "icons": {
-        "48": "icons/icon-48.png",
-        "96": "icons/icon-96.png"
+       "48": "icons/icon-48.png",
+       "96": "icons/icon-96.png"
     }
 }
