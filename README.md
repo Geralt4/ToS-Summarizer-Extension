@@ -34,7 +34,7 @@ Using the power of Google's Gemini AI, this extension provides concise summaries
 
 **Privacy:**
 
-*   Please see our Privacy Policy here: [LINK_TO_YOUR_PRIVACY_POLICY_HERE]
+*   Please see our Privacy Policy here: (https://github.com/Geralt4/ToS-Summarizer-Extension/blob/main/PRIVACY.md)
 
 **Feedback & Issues:**
 
