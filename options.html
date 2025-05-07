@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ToS Summarizer Options</title>
+    <link rel="stylesheet" href="options.css"> <!-- Optional CSS -->
+</head>
+<body>
+    <h1>ToS Summarizer Options</h1>
+
+    <section>
+        <h2>Google AI Studio API Key</h2>
+        <p>
+            You need an API key from Google AI Studio to use the summarization feature.
+            Get one <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">here</a>.
+            The free tier is usually generous enough for personal use.
+        </p>
+        <p>
+            Your key is stored locally in your browser and is **not** sent anywhere except directly to Google's API endpoint when summarizing.
+        </p>
+
+        <label for="apiKey">API Key:</label>
+        <input type="password" id="apiKey" size="60"> <!-- type="password" masks the key -->
+        <button id="saveButton">Save Key</button>
+        <p id="statusMessage" class="status"></p> <!-- To show feedback -->
+    </section>
+
+    <script src="options.js"></script> <!-- Link to the JavaScript for this page -->
+</body>
+</html>
