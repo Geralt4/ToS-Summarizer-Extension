@@ -1,0 +1,51 @@
+/* --- options.css --- */
+body {
+    font-family: sans-serif;
+    padding: 1em;
+    min-width: 400px; /* Give it some width */
+}
+
+h1, h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.3em;
+}
+
+section {
+    margin-bottom: 1.5em;
+}
+
+label {
+    margin-right: 0.5em;
+    font-weight: bold;
+}
+
+input[type="password"] {
+    padding: 0.4em;
+    margin-right: 0.5em;
+    min-width: 300px; /* Make input field reasonably wide */
+}
+
+button {
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+.status {
+    margin-top: 0.8em;
+    padding: 0.5em;
+    border-radius: 4px;
+    display: inline-block; /* Only take up needed space */
+    font-weight: bold;
+}
+
+.status.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.status.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
