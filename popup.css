@@ -1,0 +1,198 @@
+/* ======================================================================== */
+/* --- START OF popup.css (Optimized Version) --- */
+/* ======================================================================== */
+
+body {
+    font-family: sans-serif;
+    padding: 10px;
+    min-width: 350px; /* Set a reasonable minimum width */
+    max-width: 500px; /* And a maximum width */
+    color: #333;
+    font-size: 14px; /* Base font size */
+}
+
+#content {
+    margin-bottom: 10px;
+}
+
+h3 { /* Popup Title */
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+}
+
+#status {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    min-height: 1.2em; /* Prevent layout jump */
+    text-align: center;
+}
+
+.summary-container, .error-container {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 350px; /* Limit height and allow scrolling */
+    overflow-y: auto; /* Add scrollbar if content overflows */
+    background-color: #f9f9f9; /* Default background */
+}
+
+h4 { /* "Summary:" or "Error:" headings */
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Specific heading colors */
+.summary-container h4 {
+    color: #2e7d32; /* Darker green */
+}
+
+.error-container h4 {
+    color: #c62828; /* Darker red */
+}
+
+/* Container for summary text */
+#summaryText {
+    white-space: pre-wrap; /* Allows wrapping and preserves line breaks from \n */
+    word-wrap: break-word; /* Breaks long words */
+    font-size: 0.95em;
+    color: #222; /* Default summary text color is dark grey/black */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* Paragraph for error text */
+#errorText {
+    color: #a94442; /* Standard error text color */
+    font-size: 0.95em;
+    white-space: pre-wrap; /* Allow wrapping */
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+/* --- Style for WARNINGS --- */
+.summary-warning {
+    /* Background and Border styles */
+    background-color: #fdeeee; /* Light red background */
+    border: 1px solid #f5c6cb; /* Reddish border */
+    border-left: 5px solid #dc3545; /* Prominent left red border */
+
+    /* Layout and Spacing */
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 4px;
+
+    /* Text Formatting */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.95em;
+    line-height: 1.5;
+
+    /* --- APPLY COLOR TO ALL TEXT WITHIN --- */
+    color: #dc3545 !important; /* Strong Red + !important to override any other styles */
+}
+
+/* --- Button Styles --- */
+/* --- In popup.css --- */
+
+/* General style for buttons in the popup or specific IDs */
+button#summarizePageButton, button#summarizeSelectedButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px; /* Add a bit of top margin for spacing */
+    transition: background-color 0.2s ease;
+}
+
+button#summarizePageButton {
+    background-color: #007bff; /* Blue for primary action */
+}
+button#summarizePageButton:hover {
+    background-color: #0056b3;
+}
+
+button#summarizeSelectedButton {
+    background-color: #28a745; /* Green for alternative action */
+    /* margin-top: 8px; /* Already handled by the general rule */
+}
+button#summarizeSelectedButton:hover {
+    background-color: #1e7e34;
+}
+
+
+/* Disabled state (applies to both) */
+button#summarizePageButton:disabled,
+button#summarizeSelectedButton:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+/* Remove the old specific rule if it exists: */
+/* button#summarizeButton { ... } */
+
+
+/* --- Loader Styles --- */
+.loader {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto; /* Center the loader */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Disclaimer Style --- */
+.disclaimer {
+    font-size: 0.8em;
+    color: #666;
+    text-align: center;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+}
+
+/* --- Copy Button Style --- */
+#copyButton {
+   margin-left: 10px;
+   background-color: #6c757d;
+   color: white;
+   border: none;
+   border-radius: 3px;
+   float: right; /* Ensure it stays next to the heading */
+   font-size: 0.8em;
+   padding: 2px 5px;
+   cursor: pointer;
+}
+#copyButton:hover {
+    background-color: #5a6268;
+}
+#copyButton:active {
+    background-color: #343a40;
+}
+
+/* ======================================================================== */
+/* --- END OF popup.css --- */
+/* ======================================================================== */
