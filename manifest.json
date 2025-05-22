@@ -1,38 +1,38 @@
 {
-    "manifest_version": 3,
-    "name": "ToS Summarizer AI",
-    "version": "1.0.0",
-    "description": "Summarizes Terms of Service & Privacy Policies using AI. Requires a Google AI Studio API key.",
-    "browser_specific_settings": {
-      "gecko": {
-        "id": "{b528c406-1c0c-4b56-aeca-1a7c85334bb6}",
-        "strict_min_version": "109.0"
-      }
-    },
-    "options_ui": {
-      "page": "options.html",
-      "open_in_tab": true
-    },
-    "action": {
-      "default_icon": {
-        "48": "icons/icon-48.png"
-      },
-      "default_title": "Summarize ToS",
-      "default_popup": "popup.html"
-    },
-    "background": {
-      "scripts": ["background.js"]
-    },
-    "permissions": [
-      "storage",
-      "activeTab",
-      "scripting"
-    ],
-    "host_permissions": [
-      "https://generativelanguage.googleapis.com/*"
-    ],
-    "icons": {
-       "48": "icons/icon-48.png",
-       "96": "icons/icon-96.png"
+  "manifest_version": 3,
+  "name": "ToS Summarizer AI",
+  "version": "1.1.0",
+  "description": "Summarizes Terms of Service & Privacy Policies using AI. Requires a Google AI Studio API key.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{b528c406-1c0c-4b56-aeca-1a7c85334bb6}",
+      "strict_min_version": "109.0"
     }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_icon": {
+      "48": "icons/icon-48.png"
+    },
+    "default_title": "Summarize ToS",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "icons": {
+     "48": "icons/icon-48.png",
+     "96": "icons/icon-96.png"
+  }
 }
