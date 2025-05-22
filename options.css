@@ -1,51 +1,284 @@
-/* --- options.css --- */
-body {
-    font-family: sans-serif;
-    padding: 1em;
-    min-width: 400px; /* Give it some width */
+/* ToS Summarizer AI v1.1 - Enhanced Options Styles */
+
+* {
+    box-sizing: border-box;
 }
 
-h1, h2 {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.3em;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    margin: 10px 0 0 0;
+    font-size: 1.1em;
+    opacity: 0.9;
+    font-weight: 300;
 }
 
 section {
-    margin-bottom: 1.5em;
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+section h2 {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    margin: 0;
+    padding: 20px 30px;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #495057;
+}
+
+.api-section, .model-section, .about-section {
+    padding: 30px;
+}
+
+.api-section h2 {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    color: #2e7d32;
+}
+
+.model-section h2 {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    color: #1565c0;
+}
+
+.about-section {
+    padding-top: 0;
+}
+
+.about-section h2 {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    color: #e65100;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-left: 4px solid #6c757d;
+}
+
+.info-box p {
+    margin: 0 0 10px 0;
+    color: #495057;
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.info-box a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.info-box a:hover {
+    text-decoration: underline;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 label {
-    margin-right: 0.5em;
-    font-weight: bold;
+    font-weight: 600;
+    color: #495057;
+    min-width: 80px;
+    font-size: 0.95em;
 }
 
-input[type="password"] {
-    padding: 0.4em;
-    margin-right: 0.5em;
-    min-width: 300px; /* Make input field reasonably wide */
+input[type="password"], select {
+    flex: 1;
+    min-width: 300px;
+    padding: 12px 16px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background: white;
 }
 
-button {
-    padding: 0.5em 1em;
+input[type="password"]:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+.primary-btn, .secondary-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-family: inherit;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,123,255,0.2);
+}
+
+.primary-btn:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0,123,255,0.3);
+}
+
+.primary-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.secondary-btn {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+    color: white;
+    box-shadow: 0 4px 6px rgba(108,117,125,0.2);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.secondary-btn:hover {
+    background: linear-gradient(135deg, #5a6268 0%, #495057 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(108,117,125,0.3);
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .status {
-    margin-top: 0.8em;
-    padding: 0.5em;
-    border-radius: 4px;
-    display: inline-block; /* Only take up needed space */
-    font-weight: bold;
+    margin-top: 15px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9em;
+    display: block;
+    transition: all 0.3s ease;
 }
 
 .status.success {
-    background-color: #dff0d8;
-    color: #3c763d;
-    border: 1px solid #d6e9c6;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
 .status.error {
-    background-color: #f2dede;
-    color: #a94442;
-    border: 1px solid #ebccd1;
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.status.info {
+    background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 15px;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    section {
+        margin: 20px 15px;
+    }
+    
+    .api-section, .model-section, .about-section {
+        padding: 20px;
+    }
+    
+    section h2 {
+        padding: 15px 20px;
+        font-size: 1.2em;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    input[type="password"], select {
+        min-width: 100%;
+    }
+    
+    label {
+        min-width: auto;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .secondary-btn {
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+/* Animation for status messages */
+.status {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

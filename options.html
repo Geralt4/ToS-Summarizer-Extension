@@ -2,29 +2,60 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ToS Summarizer Options</title>
-    <link rel="stylesheet" href="options.css"> <!-- Optional CSS -->
+    <title>ToS Summarizer AI - Settings</title>
+    <link rel="stylesheet" href="options.css">
 </head>
 <body>
-    <h1>ToS Summarizer Options</h1>
+    <div class="header">
+        <h1>ToS Summarizer AI v1.1</h1>
+        <p class="subtitle">Extension Settings</p>
+    </div>
 
-    <section>
-        <h2>Google AI Studio API Key</h2>
-        <p>
-            You need an API key from Google AI Studio to use the summarization feature.
-            Get one <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">here</a>.
-            The free tier is usually generous enough for personal use.
-        </p>
-        <p>
-            Your key is stored locally in your browser and is **not** sent anywhere except directly to Google's API endpoint when summarizing.
-        </p>
+    <section class="api-section">
+        <h2>🔑 Google AI Studio API Key</h2>
+        <div class="info-box">
+            <p><strong>Required:</strong> You need an API key from Google AI Studio to use the summarization feature.</p>
+            <p>Get your free API key at: <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">Google AI Studio</a></p>
+            <p><strong>Privacy:</strong> Your key is stored locally in your browser and only sent directly to Google's API when summarizing.</p>
+        </div>
 
-        <label for="apiKey">API Key:</label>
-        <input type="password" id="apiKey" size="60"> <!-- type="password" masks the key -->
-        <button id="saveButton">Save Key</button>
-        <p id="statusMessage" class="status"></p> <!-- To show feedback -->
+        <div class="input-group">
+            <label for="apiKey">API Key:</label>
+            <input type="password" id="apiKey" placeholder="Enter your Google AI Studio API key">
+            <button id="saveButton" class="primary-btn">💾 Save Key</button>
+        </div>
+        <p id="statusMessage" class="status"></p>
     </section>
 
-    <script src="options.js"></script> <!-- Link to the JavaScript for this page -->
+    <section class="model-section">
+        <h2>🤖 AI Model Settings</h2>
+        <div class="input-group">
+            <label for="modelSelect">Model:</label>
+            <select id="modelSelect">
+                <option value="gemini-1.5-flash-latest">Gemini 1.5 Flash (Recommended)</option>
+                <option value="gemini-1.5-pro-latest">Gemini 1.5 Pro (Advanced)</option>
+                <option value="gemini-pro">Gemini Pro</option>
+            </select>
+            <button id="testModelButton" class="secondary-btn">🧪 Test Model</button>
+        </div>
+        <p id="modelStatus" class="status"></p>
+    </section>
+
+    <section class="about-section">
+        <h2>ℹ️ About</h2>
+        <div class="info-box">
+            <p><strong>Version:</strong> 1.1.0</p>
+            <p><strong>Developer:</strong> <a href="https://github.com/Geralt4" target="_blank">Geralt4</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/Geralt4/ToS-Summarizer-Extension" target="_blank">ToS-Summarizer-Extension</a></p>
+            <p><strong>License:</strong> MIT</p>
+        </div>
+        
+        <div class="action-buttons">
+            <button id="reportBugButton" class="secondary-btn">🐛 Report Bug</button>
+            <button id="viewSourceButton" class="secondary-btn">📋 View Source</button>
+        </div>
+    </section>
+
+    <script src="options.js"></script>
 </body>
 </html>
