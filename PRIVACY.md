@@ -1,58 +1,79 @@
-# Privacy Policy for **ToS Summarizer AI** Extension
+# Privacy Policy for ToS Summarizer AI
 
-**Last Updated:** 7 May 2025
+**Effective Date:** May 22, 2025  
+**Version:** 1.1.0
 
-Thank you for installing **ToS Summarizer AI**. This Privacy Policy explains how the extension handles your data.
+## Introduction
 
----
+ToS Summarizer AI ("the Extension") is committed to protecting your privacy. This privacy policy explains how we collect, use, and protect your information when you use our browser extension.
 
-## 1. Data We **Do NOT** Collect
+## Information We Collect
 
-- **No personal data.**  
-- **No browsing history.**  
-- **No page data**, except the text you explicitly choose to summarize.  
-- **No usage analytics or tracking.**
+### Information You Provide
+- **API Key:** You provide your Google AI Studio API key, which is stored locally in your browser's storage
+- **Text Content:** When you use the summarization feature, the selected or detected text is temporarily processed
 
----
+### Information We Don't Collect
+- We do NOT collect or store any personal information on our servers
+- We do NOT track your browsing habits or website visits
+- We do NOT store summaries or processed content
+- We do NOT have access to your API key or usage data
 
-## 2. API Key Handling
+## How We Use Information
 
-- **User‑provided key.** The extension requires a Google Gemini API key that **you** obtain from Google AI Studio.  
-- **Local storage only.** Your key is stored *solely* in your browser’s extension storage.  
-- **Never shared.** It is never sent to the developer or any third party, except directly to Google when you request a summary.  
-- **Treat it like a password.** Keep your key private and secure.
+### Local Processing
+- Your API key is stored locally in your browser using Firefox's storage API
+- Text summarization requests are sent directly from your browser to Google's API
+- No data passes through our servers
 
----
+### Third-Party Services
+- **Google AI Studio API:** When you request a summary, the text content and your API key are sent directly to Google's Gemini API
+- Google's privacy policy applies to this interaction: [Google Privacy Policy](https://policies.google.com/privacy)
 
-## 3. Data Sent to Google Gemini API
+## Data Storage and Security
 
-- **What is sent:** The text you choose to summarize + your API key.  
-- **Why:** Needed for Gemini to generate a summary.  
-- **Google’s use:** Governed by Google’s own policies:  
-  - [Google APIs Terms of Service](https://developers.google.com/terms/)  
-  - [Google Privacy Policy](https://policies.google.com/privacy)  
-- The extension developer has **no control** over how Google processes or stores that data.
+### Local Storage
+- API keys are stored locally in your browser using secure browser storage
+- No sensitive data is transmitted to third parties except Google's API
+- Data is removed when you uninstall the extension
 
----
+### Security Measures
+- All communications with Google's API use HTTPS encryption
+- Your API key is masked in the options interface
+- No logging of sensitive information
 
-## 4. Page Content Extraction
+## Your Rights and Controls
 
-When you choose “Summarize Full Page,” the extension first extracts the main textual content **locally** in your browser. Only that extracted text is sent to Google.
+### Data Control
+- You can remove your API key at any time through the extension settings
+- You can uninstall the extension to remove all local data
+- You control when and what content is summarized
 
----
+### API Usage
+- You are responsible for your Google AI Studio API usage and any associated costs
+- Review Google's API terms and pricing for current limits and charges
 
-## 5. No Other Third‑Party Servers
+## Data Sharing
 
-Other than the Google Gemini endpoint, the extension does **not** communicate with any external servers.
+We do not share any data with third parties except:
+- Direct API calls to Google AI Studio (as required for functionality)
+- No other data sharing occurs
 
----
+## Changes to This Policy
 
-## 6. Changes to This Policy
+We may update this privacy policy occasionally. Changes will be reflected in the extension and on our GitHub repository. Continued use of the extension after changes indicates acceptance of the updated policy.
 
-We may update this Privacy Policy periodically. Notice of changes will appear in the extension’s store listing and/or this repository. Please review it from time to time.
+## Contact Information
 
----
+For privacy-related questions or concerns:
+- GitHub: [https://github.com/Geralt4/ToS-Summarizer-Extension](https://github.com/Geralt4/ToS-Summarizer-Extension)
+- Issues: [https://github.com/Geralt4/ToS-Summarizer-Extension/issues](https://github.com/Geralt4/ToS-Summarizer-Extension/issues)
 
-## 7. Contact Us
+## Compliance
 
-If you have any questions or concerns about this Privacy Policy, email us at **johnmanologlou@duck.com**.
+This extension is designed to comply with:
+- Firefox Add-on policies
+- General data protection principles
+- Google API terms of service
+
+By using ToS Summarizer AI, you acknowledge that you have read and understand this privacy policy.
