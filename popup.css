@@ -1,162 +1,197 @@
-/* ======================================================================== */
-/* --- START OF popup.css (Optimized Version) --- */
-/* ======================================================================== */
+/* ToS Summarizer AI v1.1 - Enhanced Popup Styles */
 
 body {
-    font-family: sans-serif;
-    padding: 10px;
-    min-width: 350px; /* Set a reasonable minimum width */
-    max-width: 500px; /* And a maximum width */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 12px;
+    min-width: 380px;
+    max-width: 480px;
     color: #333;
-    font-size: 14px; /* Base font size */
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
 }
 
 #content {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-h3 { /* Popup Title */
+h3 {
     margin-top: 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 6px;
     text-align: center;
-    color: #333;
-    font-size: 1.2em;
+    color: #2c3e50;
+    font-size: 1.3em;
+    font-weight: 600;
 }
 
 #status {
     font-style: italic;
     color: #555;
-    margin-bottom: 10px;
-    padding: 8px;
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: 3px;
-    min-height: 1.2em; /* Prevent layout jump */
+    margin-bottom: 12px;
+    padding: 10px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    min-height: 1.2em;
     text-align: center;
+    font-size: 0.9em;
 }
 
 .summary-container, .error-container {
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 12px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    max-height: 350px; /* Limit height and allow scrolling */
-    overflow-y: auto; /* Add scrollbar if content overflows */
-    background-color: #f9f9f9; /* Default background */
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-h4 { /* "Summary:" or "Error:" headings */
+h4 {
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-size: 1.1em;
-    font-weight: bold;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Specific heading colors */
 .summary-container h4 {
-    color: #2e7d32; /* Darker green */
+    color: #27ae60;
 }
 
 .error-container h4 {
-    color: #c62828; /* Darker red */
+    color: #e74c3c;
 }
 
-/* Container for summary text */
 #summaryText {
-    white-space: pre-wrap; /* Allows wrapping and preserves line breaks from \n */
-    word-wrap: break-word; /* Breaks long words */
-    font-size: 0.95em;
-    color: #222; /* Default summary text color is dark grey/black */
-    line-height: 1.5; /* Improve readability */
-}
-
-/* Paragraph for error text */
-#errorText {
-    color: #a94442; /* Standard error text color */
-    font-size: 0.95em;
-    white-space: pre-wrap; /* Allow wrapping */
-    word-wrap: break-word;
-    line-height: 1.5;
-}
-
-/* --- Style for WARNINGS --- */
-.summary-warning {
-    /* Background and Border styles */
-    background-color: #fdeeee; /* Light red background */
-    border: 1px solid #f5c6cb; /* Reddish border */
-    border-left: 5px solid #dc3545; /* Prominent left red border */
-
-    /* Layout and Spacing */
-    padding: 8px 12px;
-    margin: 8px 0;
-    border-radius: 4px;
-
-    /* Text Formatting */
     white-space: pre-wrap;
     word-wrap: break-word;
-    font-size: 0.95em;
-    line-height: 1.5;
-
-    /* --- APPLY COLOR TO ALL TEXT WITHIN --- */
-    color: #dc3545 !important; /* Strong Red + !important to override any other styles */
+    font-size: 0.9em;
+    color: #2c3e50;
+    line-height: 1.6;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-/* --- Button Styles --- */
-/* --- In popup.css --- */
+#errorText {
+    color: #c0392b;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
 
-/* General style for buttons in the popup or specific IDs */
+/* Enhanced Warning Styles */
+.summary-warning {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+    border: 1px solid #e17055;
+    border-left: 4px solid #d63031;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #2d3436 !important;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(214, 48, 49, 0.1);
+}
+
+/* Enhanced Button Styles */
 button#summarizePageButton, button#summarizeSelectedButton {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     font-size: 1em;
-    font-weight: bold;
+    font-weight: 600;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 8px; /* Add a bit of top margin for spacing */
-    transition: background-color 0.2s ease;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 button#summarizePageButton {
-    background-color: #007bff; /* Blue for primary action */
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
 }
+
 button#summarizePageButton:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #2980b9 0%, #1f5f8b 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 button#summarizeSelectedButton {
-    background-color: #28a745; /* Green for alternative action */
-    /* margin-top: 8px; /* Already handled by the general rule */
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
 }
+
 button#summarizeSelectedButton:hover {
-    background-color: #1e7e34;
+    background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-
-/* Disabled state (applies to both) */
+/* Disabled state */
 button#summarizePageButton:disabled,
 button#summarizeSelectedButton:disabled {
-    background-color: #cccccc;
-    color: #666666;
+    background: #bdc3c7;
+    color: #7f8c8d;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Remove the old specific rule if it exists: */
-/* button#summarizeButton { ... } */
+/* Divider */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #bdc3c7 50%, transparent 100%);
+    margin: 15px 0;
+}
 
+/* Secondary Action Buttons */
+.secondary-action {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #34495e;
+    background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 6px;
+    transition: all 0.2s ease;
+    text-align: center;
+}
 
-/* --- Loader Styles --- */
+.secondary-action:hover {
+    background: linear-gradient(135deg, #d5dbdb 0%, #bdc3c7 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.secondary-action:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Enhanced Loader */
 .loader {
-    border: 4px solid #f3f3f3; /* Light grey */
-    border-top: 4px solid #3498db; /* Blue */
+    border: 3px solid #ecf0f1;
+    border-top: 3px solid #3498db;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     animation: spin 1s linear infinite;
-    margin: 10px auto; /* Center the loader */
+    margin: 12px auto;
 }
 
 @keyframes spin {
@@ -164,35 +199,61 @@ button#summarizeSelectedButton:disabled {
     100% { transform: rotate(360deg); }
 }
 
-/* --- Disclaimer Style --- */
+/* Enhanced Disclaimer */
 .disclaimer {
-    font-size: 0.8em;
-    color: #666;
+    font-size: 0.75em;
+    color: #7f8c8d;
     text-align: center;
     margin-top: 15px;
-    border-top: 1px solid #eee;
-    padding-top: 8px;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 10px;
+    line-height: 1.3;
+    font-style: italic;
 }
 
-/* --- Copy Button Style --- */
+/* Enhanced Copy Button */
 #copyButton {
-   margin-left: 10px;
-   background-color: #6c757d;
-   color: white;
-   border: none;
-   border-radius: 3px;
-   float: right; /* Ensure it stays next to the heading */
-   font-size: 0.8em;
-   padding: 2px 5px;
-   cursor: pointer;
-}
-#copyButton:hover {
-    background-color: #5a6268;
-}
-#copyButton:active {
-    background-color: #343a40;
+    margin-left: 0;
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
 
-/* ======================================================================== */
-/* --- END OF popup.css --- */
-/* ======================================================================== */
+#copyButton:hover {
+    background: linear-gradient(135deg, #7f8c8d 0%, #6c7b7d 100%);
+    transform: translateY(-1px);
+}
+
+#copyButton:active {
+    transform: translateY(0);
+}
+
+#copyButton:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    body {
+        padding: 8px;
+        min-width: 320px;
+    }
+    
+    button#summarizePageButton, button#summarizeSelectedButton {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .secondary-action {
+        padding: 6px 10px;
+        font-size: 0.85em;
+    }
+}
