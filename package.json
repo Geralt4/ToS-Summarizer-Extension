@@ -1,0 +1,11 @@
+{
+  "name": "tos-summarizer-extension",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2",
+    "jsdom": "^24.0.0"
+  }
+}
