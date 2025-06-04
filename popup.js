@@ -356,3 +356,6 @@ reportIssueButton.addEventListener('click', () => {
 // --- Initial state ---
 showStatus("Ready. Click an action below.");
 console.log("ToS Summarizer AI v1.1 popup script loaded and ready.");
+if (typeof module !== "undefined" && module.exports) {
+  module.exports.extractBestTextContent = extractBestTextContent;
+}
