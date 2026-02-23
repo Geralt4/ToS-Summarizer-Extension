@@ -1,4 +1,4 @@
-// ToS Summarizer AI v1.1 - Enhanced Popup Script
+// ToS Summarizer AI v1.2 - Popup Script
 
 // --- Element References ---
 const summarizePageButton = document.getElementById('summarizePageButton');

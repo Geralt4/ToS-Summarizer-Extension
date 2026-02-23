@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>ToS Summarizer AI v1.1</h1>
+        <h1>ToS Summarizer AI v1.2</h1>
         <p class="subtitle">Extension Settings</p>
     </div>
 
@@ -28,15 +28,14 @@
     </section>
 
     <section class="model-section">
-        <h2>🤖 AI Model Settings</h2>
+        <h2>🤖 AI Model</h2>
+        <div class="model-display">
+            <span class="model-label">Active Model</span>
+            <span class="model-name">Gemini 3 Flash Preview</span>
+            <span class="model-badge">Google AI Studio</span>
+        </div>
         <div class="input-group">
-            <label for="modelSelect">Model:</label>
-            <select id="modelSelect">
-                <option value="gemini-1.5-flash-latest">Gemini 1.5 Flash (Recommended)</option>
-                <option value="gemini-1.5-pro-latest">Gemini 1.5 Pro (Advanced)</option>
-                <option value="gemini-pro">Gemini Pro</option>
-            </select>
-            <button id="testModelButton" class="secondary-btn">🧪 Test Model</button>
+            <button id="testModelButton" class="secondary-btn">🧪 Test Connection</button>
         </div>
         <p id="modelStatus" class="status"></p>
     </section>
@@ -44,7 +43,7 @@
     <section class="about-section">
         <h2>ℹ️ About</h2>
         <div class="info-box">
-            <p><strong>Version:</strong> 1.1.0</p>
+            <p><strong>Version:</strong> 1.2.0</p>
             <p><strong>Developer:</strong> <a href="https://github.com/Geralt4" target="_blank">Geralt4</a></p>
             <p><strong>GitHub:</strong> <a href="https://github.com/Geralt4/ToS-Summarizer-Extension" target="_blank">ToS-Summarizer-Extension</a></p>
             <p><strong>License:</strong> MIT</p>

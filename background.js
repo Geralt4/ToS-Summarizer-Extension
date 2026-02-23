@@ -9,7 +9,7 @@ async function getApiKey() {
 // Helper to get stored model name or fallback
 async function getModelName() {
   const res = await browser.storage.local.get('geminiModelName');
-  return res.geminiModelName || 'gemini-1.5-flash-latest';
+  return res.geminiModelName || 'gemini-3-flash-preview';
 }
 
 // Test API key validity — called via message action so key never touches options page network stack
