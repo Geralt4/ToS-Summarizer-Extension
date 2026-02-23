@@ -43,10 +43,8 @@ function saveApiKey() {
         geminiApiKey: apiKey
     }).then(() => {
         showStatus(statusMessage, '✅ API Key saved successfully!', 'success');
-        console.log("API Key saved.");
-        
-        // Test the API key after saving
-        testApiKey(apiKey);
+        // Test the API key after saving (via background to keep key off options page network stack)
+        testApiKey();
     }).catch(error => {
         showStatus(statusMessage, `❌ Error saving key: ${error.message}`, 'error');
         console.error("Error saving API key:", error);
@@ -56,35 +54,22 @@ function saveApiKey() {
     });
 }
 
-// Function to test API key
-async function testApiKey(apiKey = null) {
-    if (!apiKey) {
-        const result = await browser.storage.local.get('geminiApiKey');
-        apiKey = result.geminiApiKey;
-    }
-
-    if (!apiKey) {
-        showStatus(statusMessage, 'No API key to test.', 'error');
-        return;
-    }
-
+// Function to test API key — delegates to background.js so the key never
+// appears in the options page DevTools Network tab
+async function testApiKey() {
     testModelButton.disabled = true;
     testModelButton.textContent = '🧪 Testing...';
     showStatus(modelStatus, 'Testing API connection...', 'info', 0);
 
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
-        
-        if (response.ok) {
-            const data = await response.json();
-            const modelCount = data.models ? data.models.length : 0;
-            showStatus(modelStatus, `✅ API key is valid! Found ${modelCount} available models.`, 'success');
+        const result = await browser.runtime.sendMessage({ action: 'testKey' });
+        if (result.valid) {
+            showStatus(modelStatus, `✅ API key is valid! Found ${result.modelCount} available models.`, 'success');
         } else {
-            const errorData = await response.json().catch(() => ({ error: { message: 'Unknown error' } }));
-            showStatus(modelStatus, `❌ API test failed: ${errorData.error?.message || 'Invalid key'}`, 'error');
+            showStatus(modelStatus, `❌ API test failed: ${result.error || 'Invalid key'}`, 'error');
         }
     } catch (error) {
-        showStatus(modelStatus, `❌ Network error: ${error.message}`, 'error');
+        showStatus(modelStatus, `❌ Error: ${error.message}`, 'error');
     } finally {
         testModelButton.disabled = false;
         testModelButton.textContent = '🧪 Test Model';
@@ -99,7 +84,6 @@ function saveModelSelection() {
         geminiModelName: selectedModel
     }).then(() => {
         showStatus(modelStatus, `✅ Model "${selectedModel}" saved!`, 'success');
-        console.log("Model selection saved:", selectedModel);
     }).catch(error => {
         showStatus(modelStatus, `❌ Error saving model: ${error.message}`, 'error');
         console.error("Error saving model selection:", error);
@@ -114,13 +98,12 @@ async function loadSavedSettings() {
         // Load API key
         if (result.geminiApiKey) {
             apiKeyInput.value = result.geminiApiKey;
-            console.log("Loaded saved API key.");
+            // Key test is user-initiated only (via Test Model button)
         }
         
         // Load model selection
         if (result.geminiModelName) {
             modelSelect.value = result.geminiModelName;
-            console.log("Loaded saved model:", result.geminiModelName);
         }
         
     } catch (error) {
@@ -156,13 +139,3 @@ viewSourceButton.addEventListener('click', () => {
         url: 'https://github.com/Geralt4/ToS-Summarizer-Extension'
     });
 });
-
-// Auto-test API key on load if it exists
-setTimeout(async () => {
-    const result = await browser.storage.local.get('geminiApiKey');
-    if (result.geminiApiKey) {
-        testApiKey(result.geminiApiKey);
-    }
-}, 1000);
-
-console.log("ToS Summarizer AI v1.1 options script loaded.");

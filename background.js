@@ -1,6 +1,4 @@
 // Background script for Gemini API integration
-// --- Debug Flag (set to false for production) ---
-const DEBUG = true;
 
 // Helper to get stored API key
 async function getApiKey() {
@@ -14,30 +12,25 @@ async function getModelName() {
   return res.geminiModelName || 'gemini-1.5-flash-latest';
 }
 
-// List available models from Gemini API
-async function listAvailableModels() {
+// Test API key validity — called via message action so key never touches options page network stack
+async function testApiKey() {
   const apiKey = await getApiKey();
   if (!apiKey) {
-    return { error: 'API key not configured.' };
+    return { error: 'No API key configured.' };
   }
   const url = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
-  if (DEBUG) console.log('[listAvailableModels] Fetching models from:', url);
   try {
-    const response = await fetch(url);
-    const text = await response.text();
-    const data = response.ok ? JSON.parse(text) : null;
-    if (!response.ok) {
-      const errMsg = data?.error?.message || text;
-      return { error: `API Error ${response.status}: ${errMsg}` };
+    const response = await fetch(url, { cache: 'no-store' });
+    if (response.ok) {
+      const data = await response.json();
+      const modelCount = data.models ? data.models.length : 0;
+      return { valid: true, modelCount };
+    } else {
+      const errorData = await response.json().catch(() => ({ error: { message: 'Unknown error' } }));
+      return { valid: false, error: errorData.error?.message || 'Invalid key' };
     }
-    const usable = (data.models || [])
-      .filter(m => m.supportedGenerationMethods?.includes('generateContent'))
-      .map(m => m.name.replace('models/', ''));
-    if (DEBUG) console.log('[listAvailableModels] usable models:', usable);
-    return { usableNames: usable };
   } catch (err) {
-    console.error('[listAvailableModels] Network error:', err);
-    return { error: `Network error: ${err.message}` };
+    return { valid: false, error: `Network error: ${err.message}` };
   }
 }
 
@@ -47,7 +40,6 @@ async function summarizeTextWithGemini(text) {
   if (!apiKey) throw new Error('API key not configured.');
   const model = await getModelName();
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-  if (DEBUG) console.log('[summarizeTextWithGemini] URL:', url);
   
   const prompt = `Please analyze and summarize the following Terms of Service text:
 
@@ -67,6 +59,7 @@ ${text}
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      cache: 'no-store',
       body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
     });
     const bodyText = await response.text();
@@ -84,7 +77,6 @@ ${text}
     }
     const summary = data?.candidates?.[0]?.content?.parts?.[0]?.text;
     if (!summary) throw new Error('No summary returned.');
-    if (DEBUG) console.log('[summarizeTextWithGemini] Summary:', summary);
     return { summary: summary.trim() };
   } catch (err) {
     console.error('[summarizeTextWithGemini] Error:', err);
@@ -95,8 +87,8 @@ ${text}
 // Background message listener
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   (async () => {
-    if (request.action === 'listModels') {
-      const result = await listAvailableModels();
+    if (request.action === 'testKey') {
+      const result = await testApiKey();
       sendResponse(result);
     } else if (request.action === 'summarize') {
       const result = await summarizeTextWithGemini(request.text || '');

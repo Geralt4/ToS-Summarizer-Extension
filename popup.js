@@ -27,7 +27,6 @@ function showStatus(message, isError = false) {
     statusDiv.textContent = message;
     statusDiv.style.display = 'block';
     statusDiv.style.color = isError ? '#a94442' : '#555';
-    console.log("Popup Status:", message);
 }
 
 function showLoader(message) {
@@ -38,7 +37,6 @@ function showLoader(message) {
     statusDiv.style.display = 'block';
     statusDiv.style.color = '#555';
     loaderDiv.style.display = 'block';
-    console.log("Popup Loader:", message);
 }
 
 function showSummary(summary) {
@@ -64,7 +62,6 @@ function showSummary(summary) {
     summaryResultDiv.style.display = 'block';
     disclaimerP.textContent = DISCLAIMER_TEXT;
     disclaimerP.style.display = 'block';
-    console.log("Popup Summary Displayed.");
 }
 
 function showError(errorMessage) {
@@ -75,7 +72,6 @@ function showError(errorMessage) {
     errorResultDiv.style.display = 'block';
     disclaimerP.textContent = DISCLAIMER_TEXT;
     disclaimerP.style.display = 'block';
-    console.error("Popup Error Displayed:", errorMessage);
 }
 
 // --- Enhanced Content Extraction Function ---
@@ -91,29 +87,14 @@ function extractBestTextContent() {
         return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
     }
     
-    function getNodeTextLength(node) {
-        let length = 0;
-        if (node.nodeType === Node.TEXT_NODE) {
-            length += node.textContent.trim().length;
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-            for (const child of node.childNodes) {
-                if (child.nodeType === Node.TEXT_NODE) {
-                    length += child.textContent.trim().length;
-                }
-            }
-        }
-        return length;
-    }
-    
     function calculateScore(el) {
         if (!isElementVisible(el)) return 0;
         
         let score = 0;
-        const textLength = getNodeTextLength(el);
-        const totalTextLength = el.innerText ? el.innerText.trim().length : 0;
+        const textLength = el.innerText ? el.innerText.trim().length : 0;
         const tagName = el.tagName.toLowerCase();
         
-        if (totalTextLength < MIN_TEXT_LENGTH) return 0;
+        if (textLength < MIN_TEXT_LENGTH) return 0;
         
         // Base score from text length
         score += textLength * 1.5;
@@ -143,8 +124,8 @@ function extractBestTextContent() {
         
         // Penalize high link density
         const links = el.getElementsByTagName('a').length;
-        if (links > 5 && totalTextLength > 0) {
-            const linkDensity = links / totalTextLength;
+        if (links > 5 && textLength > 0) {
+            const linkDensity = links / textLength;
             if (linkDensity > 0.1) score *= 0.5;
             if (linkDensity > 0.3) score = 0;
         }
@@ -169,7 +150,6 @@ function extractBestTextContent() {
         });
         
         if (bestCandidate && maxScore > 10) {
-            console.log(`Selected best candidate: ${bestCandidate.tagName}#${bestCandidate.id}.${bestCandidate.className}, Score: ${maxScore.toFixed(2)}`);
             let extractedText = bestCandidate.innerText.trim();
             extractedText = extractedText.replace(/(\n\s*){3,}/g, '\n\n');
             extractedText = extractedText.replace(/ {2,}/g, ' ');
@@ -197,7 +177,6 @@ async function processSummarization(textToSummarize, sourceDescription) {
     }
 
     showLoader(`Analyzing ${sourceDescription} with AI...`);
-    console.log(`Popup: Text to summarize from ${sourceDescription} (length: ${textToSummarize.length})`);
 
     let response;
     try {
@@ -209,8 +188,6 @@ async function processSummarization(textToSummarize, sourceDescription) {
         console.error(`Popup: Error sending ${sourceDescription} text to background:`, messageError);
         throw new Error(`Communication error with background script: ${messageError.message}`);
     }
-
-    console.log(`Popup: Received response from background for ${sourceDescription}:`, response);
 
     if (response && response.summary) {
         showSummary(response.summary);
@@ -333,7 +310,6 @@ copyButton.addEventListener('click', () => {
                 copyButton.textContent = originalText;
                 copyButton.disabled = false;
             }, 1500);
-            console.log("Popup: Summary copied to clipboard.");
         })
         .catch(err => {
             console.error('Popup: Failed to copy summary text: ', err);
@@ -355,7 +331,8 @@ reportIssueButton.addEventListener('click', () => {
 
 // --- Initial state ---
 showStatus("Ready. Click an action below.");
-console.log("ToS Summarizer AI v1.1 popup script loaded and ready.");
+
+// Exports for unit testing only — not executed in browser context
 if (typeof module !== "undefined" && module.exports) {
-  module.exports.extractBestTextContent = extractBestTextContent;
+  module.exports = { extractBestTextContent };
 }
