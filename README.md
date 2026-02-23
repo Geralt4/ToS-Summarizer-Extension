@@ -1,4 +1,4 @@
-# ToS-Summarizer-Extension
+# ToS-Summarizer-Extension v1.2
 Firefox extension to summarize Terms of Service using AI
 
 Understand complex Terms of Service & Privacy Policies quickly! This AI-powered extension summarizes legal documents to highlight key points and potential concerns. Requires a free Google AI Studio API key.

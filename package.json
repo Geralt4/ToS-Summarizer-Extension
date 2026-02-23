@@ -1,6 +1,6 @@
 {
   "name": "tos-summarizer-extension",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Firefox extension that summarizes Terms of Service and Privacy Policies using Google Gemini AI.",
   "author": "Geralt4 <https://github.com/Geralt4>",
   "license": "MIT",

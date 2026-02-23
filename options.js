@@ -1,9 +1,8 @@
-// ToS Summarizer AI v1.1 - Enhanced Options Script
+// ToS Summarizer AI v1.2 - Options Script
 
 const apiKeyInput = document.getElementById('apiKey');
 const saveButton = document.getElementById('saveButton');
 const statusMessage = document.getElementById('statusMessage');
-const modelSelect = document.getElementById('modelSelect');
 const testModelButton = document.getElementById('testModelButton');
 const modelStatus = document.getElementById('modelStatus');
 const reportBugButton = document.getElementById('reportBugButton');
@@ -76,36 +75,16 @@ async function testApiKey() {
     }
 }
 
-// Function to save model selection
-function saveModelSelection() {
-    const selectedModel = modelSelect.value;
-    
-    browser.storage.local.set({
-        geminiModelName: selectedModel
-    }).then(() => {
-        showStatus(modelStatus, `✅ Model "${selectedModel}" saved!`, 'success');
-    }).catch(error => {
-        showStatus(modelStatus, `❌ Error saving model: ${error.message}`, 'error');
-        console.error("Error saving model selection:", error);
-    });
-}
-
 // Function to load saved settings
 async function loadSavedSettings() {
     try {
-        const result = await browser.storage.local.get(['geminiApiKey', 'geminiModelName']);
-        
-        // Load API key
+        const result = await browser.storage.local.get('geminiApiKey');
+
         if (result.geminiApiKey) {
             apiKeyInput.value = result.geminiApiKey;
-            // Key test is user-initiated only (via Test Model button)
+            // Key test is user-initiated only (via Test Connection button)
         }
-        
-        // Load model selection
-        if (result.geminiModelName) {
-            modelSelect.value = result.geminiModelName;
-        }
-        
+
     } catch (error) {
         showStatus(statusMessage, `❌ Error loading settings: ${error.message}`, 'error');
         console.error("Error loading settings:", error);
@@ -123,8 +102,6 @@ apiKeyInput.addEventListener('keypress', (event) => {
         saveApiKey();
     }
 });
-
-modelSelect.addEventListener('change', saveModelSelection);
 
 testModelButton.addEventListener('click', () => testApiKey());
 

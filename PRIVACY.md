@@ -1,7 +1,7 @@
 # Privacy Policy for ToS Summarizer AI
 
 **Effective Date:** February 23, 2026  
-**Version:** 1.1.0
+**Version:** 1.2.0
 
 ## Introduction
 
