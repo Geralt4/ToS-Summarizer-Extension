@@ -1,7 +1,7 @@
 # ToS-Summarizer-Extension
 Firefox extension to summarize Terms of Service using AI
 
-Understand complex Terms of Service & Privacy Policies quickly! This AI-powered extension summarizes legal documents to highlight key points and potential concerns. Requires a free Google AI Studio API key."
+Understand complex Terms of Service & Privacy Policies quickly! This AI-powered extension summarizes legal documents to highlight key points and potential concerns. Requires a free Google AI Studio API key.
 
 
 Fed up with lengthy and confusing Terms of Service (ToS) and Privacy Policies? ToS Summarizer AI helps you cut through the legal jargon!
@@ -16,6 +16,16 @@ Using the power of Google's Gemini AI, this extension provides concise summaries
     *   **Summarize Selected Text:** Manually select any text on a page and get a summary of just your selection.
 *   **Copy Summary:** Easily copy the generated summary to your clipboard.
 *   **Activity Indicator:** See when the extension is working on your summary.
+
+**Installation:**
+
+1.  Download or clone this repository.
+2.  Open Firefox and navigate to `about:debugging`.
+3.  Click **This Firefox** in the left sidebar.
+4.  Click **Load Temporary Add-on...** and select the `manifest.json` file from the project folder.
+5.  The extension icon will appear in your toolbar. Open it and go to **Extension Settings** to enter your API key.
+
+> For a permanent installation, the extension can be submitted to [Firefox Add-ons (AMO)](https://addons.mozilla.org/).
 
 **IMPORTANT - API Key Required:**
 
@@ -39,10 +49,19 @@ Using the power of Google's Gemini AI, this extension provides concise summaries
 **Feedback & Issues:**
 
 *   Found a bug or have a suggestion? Please report it via the "Report an Issue" button in the extension popup, or directly at [https://github.com/Geralt4/ToS-Summarizer-Extension/issues].
+
 ## Running Tests
 
-Run `npm test` to execute the Jest suite.
+```bash
+npm install
+npm test
+```
 
+Run with coverage:
+
+```bash
+npm run test:coverage
+```
 
 ## 🔖 License
 
@@ -51,5 +70,4 @@ Run `npm test` to execute the Jest suite.
 ---
 
 > Built with ❤️ by [Geralt4](https://github.com/Geralt4)
-
 

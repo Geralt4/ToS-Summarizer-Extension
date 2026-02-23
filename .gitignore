@@ -1,2 +1,30 @@
-.DS_Store
+# Dependencies
 node_modules/
+
+# Test coverage reports
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment / secrets
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Build / packaging artifacts
+web-ext-artifacts/
+*.zip
+*.xpi
