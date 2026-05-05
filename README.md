@@ -70,4 +70,3 @@ npm run test:coverage
 ---
 
 > Built with ❤️ by [Geralt4](https://github.com/Geralt4)
-
