@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>ToS Summarizer</title>
@@ -7,28 +7,33 @@
 </head>
 <body>
     <div id="content">
-        <h3 id="title">ToS Summarizer AI v1.2</h3>
-        <div id="status">Ready. Click an action below.</div>
-        <div id="loader" class="loader" style="display: none;"></div>
-        <div id="summaryResult" class="summary-container" style="display: none;">
-            <h4>Summary: <button id="copyButton" title="Copy Summary">Copy</button></h4>
-            <pre id="summaryText"></pre>
+        <h3 id="title">ToS Summarizer AI</h3>
+        <div id="status" role="status" aria-live="polite">Ready. Click an action below.</div>
+        <div id="loader" class="loader" role="img" aria-label="Loading" hidden></div>
+        <div id="summaryResult" class="summary-container" hidden>
+            <h4>Summary: <span id="copyStatus" class="note" role="status"></span><button id="copyButton" title="Copy Summary">Copy</button></h4>
+            <div id="summaryText"></div>
+            <p id="summaryNote" class="note" hidden></p>
         </div>
-        <div id="errorResult" class="error-container" style="display: none;">
+        <div id="errorResult" class="error-container" role="alert" hidden>
             <h4>Error:</h4>
             <p id="errorText"></p>
+            <button id="errorSettingsButton" class="secondary-action" hidden>Open Settings</button>
         </div>
-        <p id="disclaimer" class="disclaimer" style="display: none;"></p>
+        <p id="disclaimer" class="disclaimer" hidden></p>
     </div>
 
-    <button id="summarizePageButton">Summarize Full Page (Auto-Detect)</button>
-    <button id="summarizeSelectedButton">Summarize Selected Text</button>
-    
-    <div class="divider"></div>
-    
-    <button id="openOptionsButton" class="secondary-action">⚙️ Extension Settings</button>
-    <button id="reportIssueButton" class="secondary-action">📝 Report an Issue</button>
+    <div id="actions">
+        <button id="summarizePageButton">Summarize Full Page (Auto-Detect)</button>
+        <button id="summarizeSelectedButton">Summarize Selected Text</button>
+    </div>
 
+    <div class="divider"></div>
+
+    <button id="openOptionsButton" class="secondary-action"><span aria-hidden="true">⚙️ </span>Extension Settings</button>
+    <button id="reportIssueButton" class="secondary-action"><span aria-hidden="true">📝 </span>Report an Issue</button>
+
+    <script src="extract.js"></script>
     <script src="popup.js"></script>
 </body>
 </html>
