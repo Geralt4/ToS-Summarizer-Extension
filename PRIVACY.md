@@ -1,79 +1,48 @@
 # Privacy Policy for ToS Summarizer AI
 
-**Effective Date:** February 23, 2026  
-**Version:** 1.2.0
+**Effective Date:** October 10, 2026  
+**Version:** 1.3.0
 
 ## Introduction
 
-ToS Summarizer AI ("the Extension") is committed to protecting your privacy. This privacy policy explains how we collect, use, and protect your information when you use our browser extension.
+ToS Summarizer AI ("the Extension") runs entirely in your browser. The developer operates no server and receives none of your data. This policy explains what the Extension stores and what it sends to Google.
 
-## Information We Collect
+## What the Extension handles
 
-### Information You Provide
-- **API Key:** You provide your Google AI Studio API key, which is stored locally in your browser's storage
-- **Text Content:** When you use the summarization feature, the selected or detected text is temporarily processed
+- **API key:** The Google AI Studio API key you enter is stored **unencrypted** in the extension storage of your browser profile. Anyone with access to your profile files can read it. You can delete it at any time with the **Remove key** button in settings. The key is never loaded back into the settings page.
+- **Page or selected text:** When you click the summarize button, the text of the current page (or your selection) is sent to Google's Gemini API, together with your API key in a request header. Nothing is sent until you click.
+- **Last summary:** The most recent summary is held in your browser's session storage so the popup can show it again. It is cleared when the browser closes.
+- **Settings:** Your chosen model is stored in extension storage.
 
-### Information We Don't Collect
-- We do NOT collect or store any personal information on our servers
-- We do NOT track your browsing habits or website visits
-- We do NOT store summaries or processed content
-- We do NOT have access to your API key or usage data
+## What the Extension does not do
 
-## How We Use Information
+- It does not send any data to the developer or to any party other than Google's Gemini API.
+- It does not track your browsing, and it does not read pages until you ask for a summary.
+- It does not keep summaries after the browser closes.
+- Errors may be logged to the browser console to help debugging. These logs do not contain your API key.
 
-### Local Processing
-- Your API key is stored locally in your browser using Firefox's storage API
-- Text summarization requests are sent directly from your browser to Google's API
-- No data passes through our servers
+## Google's handling of your content
 
-### Third-Party Services
-- **Google AI Studio API:** When you request a summary, the text content and your API key are sent directly to Google's Gemini API
-- Google's privacy policy applies to this interaction: [Google Privacy Policy](https://policies.google.com/privacy)
+Requests go directly from your browser to Google, and Google's terms apply to that content. On Google's unpaid (free) tier, Google may use the submitted content to improve its products, and human reviewers may read it. Different terms apply in the European Economic Area, the United Kingdom and Switzerland. See the [Gemini API terms](https://ai.google.dev/gemini-api/terms) and the [Google Privacy Policy](https://policies.google.com/privacy).
 
-## Data Storage and Security
+**Do not summarize pages that contain personal or confidential information.**
 
-### Local Storage
-- API keys are stored locally in your browser using secure browser storage
-- No sensitive data is transmitted to third parties except Google's API
-- Data is removed when you uninstall the extension
+## Your controls
 
-### Security Measures
-- All communications with Google's API use HTTPS encryption
-- Your API key is masked in the options interface
-- No logging of sensitive information
-
-## Your Rights and Controls
-
-### Data Control
-- You can remove your API key at any time through the extension settings
-- You can uninstall the extension to remove all local data
-- You control when and what content is summarized
-
-### API Usage
-- You are responsible for your Google AI Studio API usage and any associated costs
-- Review Google's API terms and pricing for current limits and charges
-
-## Data Sharing
-
-We do not share any data with third parties except:
-- Direct API calls to Google AI Studio (as required for functionality)
-- No other data sharing occurs
-
-## Changes to This Policy
-
-We may update this privacy policy occasionally. Changes will be reflected in the extension and on our GitHub repository. Continued use of the extension after changes indicates acceptance of the updated policy.
-
-## Contact Information
-
-For privacy-related questions or concerns:
-- GitHub: [https://github.com/Geralt4/ToS-Summarizer-Extension](https://github.com/Geralt4/ToS-Summarizer-Extension)
-- Issues: [https://github.com/Geralt4/ToS-Summarizer-Extension/issues](https://github.com/Geralt4/ToS-Summarizer-Extension/issues)
+- Remove your API key with the **Remove key** button.
+- Uninstall the Extension to delete all of its local data.
+- You decide when and what is summarized.
+- You are responsible for your Google API usage and any costs. See Google's [rate limits](https://ai.google.dev/gemini-api/docs/rate-limits).
 
 ## Compliance
 
-This extension is designed to comply with:
-- Firefox Add-on policies
-- General data protection principles
-- Google API terms of service
+The Extension is built to follow Mozilla's add-on policies and declares in its manifest that it transmits website content to a third party (Google) at your request.
 
-By using ToS Summarizer AI, you acknowledge that you have read and understand this privacy policy.
+## Changes to this policy
+
+Changes will be published in this repository. Continued use after a change means you accept the updated policy.
+
+## Contact
+
+- GitHub: [https://github.com/Geralt4/ToS-Summarizer-Extension](https://github.com/Geralt4/ToS-Summarizer-Extension)
+- Issues: [https://github.com/Geralt4/ToS-Summarizer-Extension/issues](https://github.com/Geralt4/ToS-Summarizer-Extension/issues)

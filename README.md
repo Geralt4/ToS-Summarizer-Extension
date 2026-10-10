@@ -1,4 +1,4 @@
-# ToS-Summarizer-Extension v1.2
+# ToS-Summarizer-Extension v1.3
 Firefox extension to summarize Terms of Service using AI
 
 Understand complex Terms of Service & Privacy Policies quickly! This AI-powered extension summarizes legal documents to highlight key points and potential concerns. Requires a free Google AI Studio API key.
@@ -12,27 +12,31 @@ Using the power of Google's Gemini AI, this extension provides concise summaries
 *   **AI-Powered Summaries:** Get easy-to-understand summaries of long texts.
 *   **Warning Highlights:** Potentially concerning clauses (like data sharing, arbitration, liability waivers) are automatically flagged in the summary.
 *   **Two Modes:**
-    *   **Summarize Full Page (Auto-Detect):** Intelligently tries to find and extract the main legal text from the current page for summarization.
+    *   **Summarize Full Page (Auto-Detect):** Scores the live page to find its main text, skips hidden text and nav, header, footer and aside areas, and sends up to 300,000 characters. It is a best-effort guess, so use the selection mode if it picks the wrong part.
     *   **Summarize Selected Text:** Manually select any text on a page and get a summary of just your selection.
 *   **Copy Summary:** Easily copy the generated summary to your clipboard.
 *   **Activity Indicator:** See when the extension is working on your summary.
 
+**Requirements:** Firefox 140 or newer.
+
 **Installation:**
 
-1.  Download or clone this repository.
+Install from [Firefox Add-ons (AMO)](https://addons.mozilla.org/firefox/addon/tos-summarizer-ai/). Settings open automatically on first install so you can enter your API key.
+
+*For development (temporary add-on):*
+
+1.  Download or clone this repository and run `npm ci`.
 2.  Open Firefox and navigate to `about:debugging`.
 3.  Click **This Firefox** in the left sidebar.
 4.  Click **Load Temporary Add-on...** and select the `manifest.json` file from the project folder.
-5.  The extension icon will appear in your toolbar. Open it and go to **Extension Settings** to enter your API key.
-
-> For a permanent installation, the extension can be submitted to [Firefox Add-ons (AMO)](https://addons.mozilla.org/).
+5.  Open the extension settings to enter your API key.
 
 **IMPORTANT - API Key Required:**
 
 *   To use this extension, you **must** obtain a free API key from **Google AI Studio** (for the Gemini API).
 *   **How to get a key:** Visit [https://aistudio.google.com/](https://aistudio.google.com/), sign in with your Google account, and click "Get API key" -> "Create API key in new project."
-*   **Free Tier:** The Gemini API offers a generous free tier (typically 60 requests per minute) which is usually sufficient for personal use. If you exceed these free limits, Google's standard API charges may apply to *your* API key usage. This extension developer does not control these limits or charges.
-*   **Why your own key?** This ensures the extension can scale without incurring costs for the developer and respects API usage policies. Your API key is stored locally in your browser by the extension and is only sent directly to Google's API when a summary is requested.
+*   **Free Tier:** The Gemini API offers a free tier that is usually sufficient for personal use; see Google's [rate limits](https://ai.google.dev/gemini-api/docs/rate-limits). If you exceed the free limits, Google's standard API charges may apply to *your* API key usage. This extension developer does not control these limits or charges.
+*   **Why your own key?** This ensures the extension can scale without incurring costs for the developer and respects API usage policies. Your API key is stored unencrypted in your browser profile's extension storage, can be removed with the "Remove key" button, and is only sent directly to Google's API (in a request header) when a summary is requested.
 *   **Supported APIs:** Currently, only Google Gemini API keys are supported.
 
 **Disclaimer:**
@@ -44,24 +48,26 @@ Using the power of Google's Gemini AI, this extension provides concise summaries
 
 **Privacy:**
 
-*   Please see our Privacy Policy here: (https://github.com/Geralt4/ToS-Summarizer-Extension/blob/main/PRIVACY.md)
+*   Please see our Privacy Policy here: [PRIVACY.md](https://github.com/Geralt4/ToS-Summarizer-Extension/blob/main/PRIVACY.md)
 
 **Feedback & Issues:**
 
-*   Found a bug or have a suggestion? Please report it via the "Report an Issue" button in the extension popup, or directly at [https://github.com/Geralt4/ToS-Summarizer-Extension/issues].
+*   Found a bug or have a suggestion? Please report it via the "Report an Issue" button in the extension popup, or directly at [GitHub Issues](https://github.com/Geralt4/ToS-Summarizer-Extension/issues).
 
-## Running Tests
-
-```bash
-npm install
-npm test
-```
-
-Run with coverage:
+## Development
 
 ```bash
-npm run test:coverage
+npm ci
+npm test          # run the unit tests
+npm run lint      # web-ext lint
+npm run build     # package into web-ext-artifacts/
 ```
+
+Run with coverage: `npm run test:coverage`.
+
+## Credits
+
+Icons from Flaticon (https://www.flaticon.com/)
 
 ## 🔖 License
 
