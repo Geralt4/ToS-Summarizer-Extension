@@ -1,16 +1,21 @@
 {
   "manifest_version": 3,
   "name": "ToS Summarizer AI",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Summarizes Terms of Service & Privacy Policies using AI. Requires a Google AI Studio API key.",
+  "author": "Geralt4",
+  "homepage_url": "https://github.com/Geralt4/ToS-Summarizer-Extension",
   "browser_specific_settings": {
     "gecko": {
       "id": "{b528c406-1c0c-4b56-aeca-1a7c85334bb6}",
-      "strict_min_version": "109.0"
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["websiteContent"]
+      }
     }
   },
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
+    "extension_pages": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://generativelanguage.googleapis.com"
   },
   "options_ui": {
     "page": "options.html",
@@ -36,7 +41,7 @@
     "https://generativelanguage.googleapis.com/*"
   ],
   "icons": {
-     "48": "icons/icon-48.png",
-     "96": "icons/icon-96.png"
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
   }
 }
