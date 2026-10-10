@@ -1,57 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ToS Summarizer AI - Settings</title>
     <link rel="stylesheet" href="options.css">
 </head>
 <body>
     <div class="header">
-        <h1>ToS Summarizer AI v1.2</h1>
+        <h1>ToS Summarizer AI</h1>
         <p class="subtitle">Extension Settings</p>
     </div>
 
     <section class="api-section">
-        <h2>🔑 Google AI Studio API Key</h2>
+        <h2>Google AI Studio API Key</h2>
         <div class="info-box">
             <p><strong>Required:</strong> You need an API key from Google AI Studio to use the summarization feature.</p>
             <p>Get your free API key at: <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">Google AI Studio</a></p>
-            <p><strong>Privacy:</strong> Your key is stored locally in your browser and only sent directly to Google's API when summarizing.</p>
+            <p><strong>Privacy:</strong> Your key is stored unencrypted in this browser profile's extension storage. It is sent only to Google's Gemini API. When you summarise a page, the page text you choose to summarise is also sent to Google. On Google's free tier, Google may use submitted content to improve its products and human reviewers may read it (this differs in the EEA, UK and Switzerland). See the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">Gemini API terms</a>.</p>
         </div>
+
+        <p class="key-state"><strong>Status:</strong> <span id="keyState">Checking...</span></p>
 
         <div class="input-group">
             <label for="apiKey">API Key:</label>
-            <input type="password" id="apiKey" placeholder="Enter your Google AI Studio API key">
-            <button id="saveButton" class="primary-btn">💾 Save Key</button>
+            <input type="password" id="apiKey" placeholder="Enter your Google AI Studio API key" autocomplete="off" spellcheck="false">
+            <button id="saveButton" class="primary-btn">Save key</button>
+            <button id="removeButton" class="danger-btn" disabled>Remove key</button>
         </div>
-        <p id="statusMessage" class="status"></p>
+        <div id="removeConfirm" class="input-group" hidden>
+            <span>Remove the saved key from this browser?</span>
+            <button id="confirmRemoveButton" class="danger-btn">Yes, remove it</button>
+            <button id="cancelRemoveButton" class="secondary-btn">Cancel</button>
+        </div>
+        <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
     </section>
 
     <section class="model-section">
-        <h2>🤖 AI Model</h2>
-        <div class="model-display">
-            <span class="model-label">Active Model</span>
-            <span class="model-name">Gemini 3 Flash Preview</span>
-            <span class="model-badge">Google AI Studio</span>
-        </div>
+        <h2>AI Model</h2>
         <div class="input-group">
-            <button id="testModelButton" class="secondary-btn">🧪 Test Connection</button>
+            <label for="modelSelect">Model:</label>
+            <select id="modelSelect">
+                <option value="">Automatic (latest Flash) - recommended</option>
+            </select>
+            <button id="refreshModelsButton" class="secondary-btn">Refresh list</button>
         </div>
-        <p id="modelStatus" class="status"></p>
+        <p id="modelStatus" class="status" role="status" aria-live="polite"></p>
+        <div class="input-group">
+            <button id="testModelButton" class="secondary-btn">Test connection</button>
+        </div>
+        <p id="testStatus" class="status" role="status" aria-live="polite"></p>
     </section>
 
     <section class="about-section">
-        <h2>ℹ️ About</h2>
+        <h2>About</h2>
         <div class="info-box">
-            <p><strong>Version:</strong> 1.2.0</p>
-            <p><strong>Developer:</strong> <a href="https://github.com/Geralt4" target="_blank">Geralt4</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/Geralt4/ToS-Summarizer-Extension" target="_blank">ToS-Summarizer-Extension</a></p>
+            <p><strong>Version:</strong> <span id="versionText"></span></p>
+            <p><strong>Developer:</strong> <a href="https://github.com/Geralt4" target="_blank" rel="noopener noreferrer">Geralt4</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/Geralt4/ToS-Summarizer-Extension" target="_blank" rel="noopener noreferrer">ToS-Summarizer-Extension</a></p>
             <p><strong>License:</strong> MIT</p>
+            <p><strong>Icons:</strong> <a href="https://www.flaticon.com/" target="_blank" rel="noopener noreferrer">Flaticon</a></p>
         </div>
-        
+
         <div class="action-buttons">
-            <button id="reportBugButton" class="secondary-btn">🐛 Report Bug</button>
-            <button id="viewSourceButton" class="secondary-btn">📋 View Source</button>
+            <button id="reportBugButton" class="secondary-btn">Report bug</button>
+            <button id="viewSourceButton" class="secondary-btn">View source</button>
         </div>
     </section>
 
